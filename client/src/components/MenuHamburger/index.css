@@ -1,0 +1,42 @@
+.toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #6565e4;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.toggle:active {
+    background-color: #4b4bb9;
+}
+
+.toggle span {
+    width: 25px;
+    height: 1px;
+    margin: 2.5px 0;
+    background-color: black;
+    transition: all .5s;
+}
+
+.toggle.open span:nth-of-type(1) {
+    transform: rotatez(-45deg) translate(-4px, 4px);
+}
+
+.toggle.open span:nth-of-type(2) {
+    transform: scale(0);
+}
+
+.toggle.open span:nth-of-type(3) {
+    transform: rotatez(45deg) translate(-4px, -4px);
+}
+
+@media (min-width: 600px) {
+    .toggle {
+        display: none;
+    }
+
+}
