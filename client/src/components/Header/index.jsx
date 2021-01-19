@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header className="header">
             <a className="logo" href="#">
-                <h1>Contacts App</h1>
+                <h1>ContactsApp</h1>
             </a>
             <MenuHamburger />
             <NavBar />

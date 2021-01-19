@@ -1,0 +1,25 @@
+.card {
+    width: 100%;
+    min-width: 300px;
+    max-width: 320px;
+    text-align: center;
+    background-color: #d05934;
+    padding: 2rem;
+    border-radius: 3px;
+}
+
+.card__name {
+    margin: 1.5rem 0;
+    font-size: 1.8rem;
+}
+
+.card__p {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.container__buttons {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1.5rem;
+}
