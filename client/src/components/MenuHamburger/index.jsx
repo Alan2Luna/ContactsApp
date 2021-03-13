@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
 import './index.css'
 
-const MenuHamburger = () => {
-    const [open, setOpen] = useState(false);
+const MenuHamburger = ({ open, handleOpenNavBar}) => {
+    // const [open, setOpen] = useState(false);
     return (
         <>
             <div 
                 className={`toggle${open ? ' open' : ''}`} 
-                onClick={() => setOpen(!open)}
+                onClick={handleOpenNavBar}
             >
                 <span></span>
                 <span></span>

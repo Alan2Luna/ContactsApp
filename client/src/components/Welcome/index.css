@@ -1,0 +1,41 @@
+.welcome {
+    color: white;
+    background-image: url('../../assets/bg-agenda.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: calc(100vh - 55px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome__box {
+    background-color: rgb(0 0 0 / 45%);
+    border-radius: 5px;
+    padding: 2.5rem;
+    min-width: 290px;
+    max-width: 350px;
+    margin: 0 4rem;
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.welcome__box span {
+    color:#5858cc;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.box__btn {
+    text-align: center;
+}
+
+.box__btn a {
+    display: inline-block;
+    margin: 2rem 0 0 0;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    background-color: #1b8c1f;
+}

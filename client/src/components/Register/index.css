@@ -1,7 +1,3 @@
-.container__register {
-    padding: 3rem 0;
-}
-
 .register {
     width: 100%;
     margin: 0 auto;
@@ -42,16 +38,4 @@
 .input__control:focus.submit {
     box-shadow: none;
     background-color: #7373c7;
-}
-
-@media (min-width: 435px) {
-    .container__register {
-        padding: 4rem 0;
-    }
-}
-
-@media (min-width: 768px) {
-    .container__register {
-        padding: 5rem 0;
-    }
 }

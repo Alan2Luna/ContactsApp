@@ -6,7 +6,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -33,21 +33,21 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.css$/i,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader
-                    },
-                    'css-loader'
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
                 ]
             },
             {
-                test: /\.(png|gif|jpg)$/,
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'assets/[hash].[ext]'
+                            name: '[name].[ext]',
+                            outputPath: './assets/',
+                            useRelativePath: true,
                         }
                     }
                 ]
@@ -60,7 +60,7 @@ module.exports = {
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: 'assets/[name].css'
+            filename: './[name].css'
         })
     ]
 }

@@ -1,0 +1,15 @@
+.container__signin {
+    padding: 3rem 2rem;
+}
+
+@media (min-width: 435px) {
+    .container__signin {
+        padding: 4rem 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .container__signin {
+        padding: 5rem 0;
+    }
+}

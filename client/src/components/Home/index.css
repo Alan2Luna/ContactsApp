@@ -1,0 +1,26 @@
+.home {
+    padding: 2rem;
+}
+
+.message {
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: rgb(255 255 255 / 75%);
+    font-size: 1.4rem;
+    min-width: 280px;
+    max-width: 350px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container__btn-add {
+    margin-top: 1rem;
+}
+
+.container__btn-add a {
+    display: inline-block;
+    padding: 1rem;
+    width: 100px;
+    background-color: green;
+    border-radius: 5px;
+}

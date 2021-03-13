@@ -1,0 +1,15 @@
+.container__register {
+    padding: 3rem 2rem;
+}
+
+@media (min-width: 435px) {
+    .container__register {
+        padding: 4rem 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .container__register {
+        padding: 5rem 0;
+    }
+}
