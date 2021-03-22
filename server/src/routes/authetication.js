@@ -30,17 +30,10 @@ router.post('/signin', async (req, res) => {
     if(verifiedPassword) {
         const token = await createToken(id)
         res.json({
-            loading: false,
-            auth: true,
-            firstname,
-            lastname,
             token
         })
     } else {
-        res.json({
-            loading: false,
-            auth: false,         
-        })
+        res.status(400)
     }
 })
 

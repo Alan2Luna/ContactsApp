@@ -14,4 +14,11 @@ router.get('/', ensureToken, async (req, res) => {
     }
 })
 
+router.get('/prueba', (req, res) => {
+    res.json({
+        'datos': 'hola',
+        'parte': 2
+    })
+})
+
 module.exports = router;

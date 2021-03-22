@@ -5,6 +5,7 @@
     padding: 2rem 1.5rem;
     background-color: white;
     border-radius: 5px;
+    box-shadow: 4px 4px #6f6363;
 }
 
 .input__container {
@@ -19,6 +20,11 @@
     border: 1px solid #6c6ce4;
     outline: none;
     border-radius: 5px;
+}
+
+.message__error {
+    color: red;
+    margin-left: .8rem;
 }
 
 .input__control:focus {

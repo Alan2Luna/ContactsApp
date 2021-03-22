@@ -1,25 +1,33 @@
 .card {
-    width: 100%;
-    min-width: 280px;
-    max-width: 320px;
+    width: 288px;
     text-align: center;
     background-color: #d05934;
+    color: #252527;
     padding: 2rem;
     border-radius: 3px;
+    margin-bottom: 1.6rem;
+    box-shadow: 4px 4px 0px #8e2909;
 }
 
 .card__name {
     margin: 1.5rem 0;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .card__p {
     margin-bottom: 1rem;
     font-size: 1.6rem;
+    font-weight: 600;
 }
 
 .container__buttons {
     display: flex;
     justify-content: space-around;
     padding-top: 1.5rem;
+}
+
+@media (min-width: 960px) {
+    .card {
+        margin-bottom: 2rem;
+    }
 }

@@ -22,12 +22,37 @@ const dataSet = [{
     'fullname': 'Alan Luna',
     'email': 'alan@gmail.com',
     'phone': '0424626164616'
+    }, {
+    'id': 5,
+    'fullname': 'Alan Luna',
+    'email': 'alan@gmail.com',
+    'phone': '0424626164616'}, 
+    {
+    'id': 6,
+    'fullname': 'Alan Luna',
+    'email': 'alan@gmail.com',
+    'phone': '0424626164616'},
+    {
+    'id': 7,
+    'fullname': 'Alan Luna',
+    'email': 'alan@gmail.com',
+    'phone': '0424626164616'
+    }, {
+    'id': 8,
+    'fullname': 'Alan Luna',
+    'email': 'alan@gmail.com',
+    'phone': '0424626164616'
+    }, {
+    'id': 9,
+    'fullname': 'Alan Luna',
+    'email': 'alan@gmail.com',
+    'phone': '0424626164616'
     }
 ]
 
 const PageContacts = () => {
     return (
-        <div>
+        <div className="container__contacts">
             {
                 dataSet.map((data) => 
                    <Card key={data.id} {...data} />

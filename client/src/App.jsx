@@ -19,12 +19,15 @@ const App = () => {
     const { setUser } = useContext(UserContext)
 
     useEffect(() => {
-        const token = getToken()
+        const token = getToken();
         if(!token) {
             setLoading(false)
             return
         }
         if(token) {
+            fetch('http://localhost:4000/prueba')
+                .then(res => res.json())
+                .then(data => console.log(data))
             setLoading(false)
             setUser(true)
             return

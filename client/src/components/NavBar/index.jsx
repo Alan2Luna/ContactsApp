@@ -1,10 +1,18 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'
 import { UserContext } from '../../context/context.js'
+import { deleteToken } from '../../lib/tokenControl.js'
 import './index.css'
 
+
 const NavBar = ({ handleOpenNavBar }) => {
-    const { user } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
+
+    const handleLogOut = () => {
+        handleOpenNavBar()
+        deleteToken()
+        setUser(false)
+    }
 
     return (
         <nav className="navbar">
@@ -12,9 +20,9 @@ const NavBar = ({ handleOpenNavBar }) => {
                 {
                     user ?
                         <>
-                        <li className="navbar__item"><Link onClick={handleOpenNavBar} to="/Home">Home</Link></li>
+                        <li className="navbar__item"><Link onClick={handleOpenNavBar} to="/">Home</Link></li>
                         <li className="navbar__item"><Link onClick={handleOpenNavBar} to="/contacts/add">Add</Link></li>
-                        <li className="navbar__item"><a to="">logout</a></li>
+                        <li className="navbar__item"><Link onClick={handleLogOut} to="/">Logout</Link></li>
                         </>
                         :
                         <>
