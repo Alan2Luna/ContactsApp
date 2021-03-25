@@ -8,12 +8,13 @@ import { UserContext } from '../context/context.js'
 
 const Home = () => {
     const { user } = useContext(UserContext)
-    
+    const { userOn } = user
+
     useEffect(() => {
         console.log('cambio user')
-    }, [user])
+    }, [userOn])
 
-    if(!user) {
+    if(!userOn) {
         return <Welcome />
     }
     return (

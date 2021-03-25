@@ -8,7 +8,7 @@ router.get('/', ensureToken, async (req, res) => {
     const decode = await verifiedToken(req, res)
     if(decode.id) {
         const { id: user_id } = decode
-        const contacts = await pool.query('SELECT fullname, email, phone FROM contacts WHERE user_id = ?', [user_id])
+        const contacts = await pool.query('SELECT id, fullname, email, phone FROM contacts WHERE user_id = ?', [user_id])
         if(contacts.length > 0) {
             res.json({
                 contacts
@@ -35,9 +35,7 @@ router.post('/add', ensureToken, async (req, res) => {
             user_id
         }
         await pool.query('INSERT INTO contacts set ?', [newContact])
-        res.status(201).json({
-            loading: false,
-        })
+        return res.status(201)
     } else {
         return decode
     }

@@ -1,64 +1,40 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
+import { UserContext } from '../context/context'
 import './styles/PageContacts.css'
 import Card from '../components/Card/'
-
-const dataSet = [{
-    'id': 1,
-    'fullname': 'Alan Luna',
-    'email': 'alan@gmail.com',
-    'phone': '0424626164616'}, 
-    {
-    'id': 2,
-    'fullname': 'Alan Luna',
-    'email': 'alan@gmail.com',
-    'phone': '0424626164616'},
-    {
-    'id': 3,
-    'fullname': 'Alan Luna',
-    'email': 'alan@gmail.com',
-    'phone': '0424626164616'
-    }, {
-    'id': 4,
-    'fullname': 'Alan Luna',
-    'email': 'alan@gmail.com',
-    'phone': '0424626164616'
-    }, {
-    'id': 5,
-    'fullname': 'Alan Luna',
-    'email': 'alan@gmail.com',
-    'phone': '0424626164616'}, 
-    {
-    'id': 6,
-    'fullname': 'Alan Luna',
-    'email': 'alan@gmail.com',
-    'phone': '0424626164616'},
-    {
-    'id': 7,
-    'fullname': 'Alan Luna',
-    'email': 'alan@gmail.com',
-    'phone': '0424626164616'
-    }, {
-    'id': 8,
-    'fullname': 'Alan Luna',
-    'email': 'alan@gmail.com',
-    'phone': '0424626164616'
-    }, {
-    'id': 9,
-    'fullname': 'Alan Luna',
-    'email': 'alan@gmail.com',
-    'phone': '0424626164616'
-    }
-]
+import { getToken } from '../lib/tokenControl'
 
 const PageContacts = () => {
-    return (
-        <div className="container__contacts">
-            {
-                dataSet.map((data) => 
-                   <Card key={data.id} {...data} />
-                )
+    const { user, setUser } = useContext(UserContext)
+    const { contacts } = user
+    const token = getToken()
+
+    useEffect(() => {
+        fetch('http://localhost:4000/contacts/', {
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `BEARER ${token}`
             }
-        </div>
+        })
+        .then(res => res.json())
+        .then(res => 
+            setUser({
+                ...user,
+                contacts: res.contacts
+            }))
+        .catch(error => console.log(error))
+    }, [])
+    
+    return (
+        contacts
+            ?   <div className="container__contacts">
+                    {
+                        contacts.map((contact) => <Card key={contact.id} {...contact}/>)
+                    }
+                </div>
+            :   <div className="container__contacts">
+                    <p>No tienes ningun contacto</p>
+                </div>
     )
 }
 

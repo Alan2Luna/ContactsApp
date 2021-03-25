@@ -22,11 +22,11 @@ const ensureToken = (req, res, next) => {
 }
 
 const verifiedToken = async (req, res) => {
-    const token = req.headers['authorization']
+    const token = req.token
     if(!token) {
         console.log('verified falling')
         return res.status(401).json({
-            message: 'No token provided'
+            message: 'No token provided1'
         })
     }
     try {
@@ -34,7 +34,7 @@ const verifiedToken = async (req, res) => {
         return decode
     } catch(error) {
         return res.status(401).json({
-            "message": "no token provided"
+            "message": "no token provided2"
         })
     }
 }

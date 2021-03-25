@@ -16,20 +16,24 @@ import Home from './pages/Home'
 
 const App = () => {
     const [loading, setLoading] = useState(true)
-    const { setUser } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
 
     useEffect(() => {
         const token = getToken();
         if(!token) {
             setLoading(false)
+            setUser({
+                ...user,
+                userOn: false
+            })
             return
         }
         if(token) {
-            fetch('http://localhost:4000/prueba')
-                .then(res => res.json())
-                .then(data => console.log(data))
             setLoading(false)
-            setUser(true)
+            setUser({
+                ...user,
+                userOn: true
+            })
             return
         }
     }, [])

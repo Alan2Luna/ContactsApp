@@ -9,7 +9,7 @@ const LogIn = () => {
     const [userPassword, setUserPassword] = useState('')
     const [userSignIn, setUserSignIn] = useState({})
     const history = useHistory()
-    const { setUser } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
 
     const handleChangeEmail = (e) => {
         setUserEmail(e.target.value)
@@ -39,7 +39,10 @@ const LogIn = () => {
         .then(res => {
             if(res.token) {
                 setToken(res.token)
-                setUser(true)
+                setUser({
+                    ...user,
+                    userOn: true
+                })
                 history.push('/') 
             }
         })

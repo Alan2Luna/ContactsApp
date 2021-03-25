@@ -7,18 +7,22 @@ import './index.css'
 
 const NavBar = ({ handleOpenNavBar }) => {
     const { user, setUser } = useContext(UserContext)
+    const { userOn } = user
 
     const handleLogOut = () => {
         handleOpenNavBar()
         deleteToken()
-        setUser(false)
+        setUser({
+            ...user,
+            userOn: false
+        })
     }
 
     return (
         <nav className="navbar">
             <ul>
                 {
-                    user ?
+                    userOn ?
                         <>
                         <li className="navbar__item"><Link onClick={handleOpenNavBar} to="/">Home</Link></li>
                         <li className="navbar__item"><Link onClick={handleOpenNavBar} to="/contacts/add">Add</Link></li>
