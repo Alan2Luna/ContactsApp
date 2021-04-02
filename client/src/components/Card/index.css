@@ -31,3 +31,29 @@
         margin-bottom: 2rem;
     }
 }
+
+.button {
+    display: inline-block;
+    width: 100px;
+    font-size: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.button.edit {
+    background-color: #11b111;
+}
+
+.button.edit:active {
+    background-color: #04fb04;
+}
+
+.button.delete {
+    background-color: #c71313;
+}
+
+.button.delete:active {
+    background-color: #fd0000;
+}

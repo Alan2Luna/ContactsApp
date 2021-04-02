@@ -1,6 +1,5 @@
 import React from 'react'
 import './index.css'
-import Card from '../Card'
 
 const Home = () => (
     <div className="home">

@@ -1,12 +1,10 @@
 import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { getToken } from '../../lib/tokenControl.js'
-import { UserContext } from '../../context/context'
 import './index.css'
 
 const Add = () => {
     const [newContact, setNewContact] = useState({})
-    const { user, setUser } = useContext(UserContext)
     const token = getToken()
     const history = useHistory()
 
@@ -19,23 +17,15 @@ const Add = () => {
                 'Content-Type': 'application/json',
                 'authorization': `BEARER ${token}`
             }
-        })
-        .then(res => res.json())
-        .then(res => console.log(res))
-        .then(res => {
-                if(res.status == 201) {
-                    console.log('entre al status')
-                    setUser({
-                        ...user,
-                        contacts: [...contacts, newContact]
-                    })
+        }).then(res => {
+                if(res.status == 200) {
                     setNewContact({})
                     history.push('/')
                 } else {
-                    console.log('No entro al IF')
+                    console.log('No se creo el usuario')
                 }
         })
-        .catch(error => console.log(error)) 
+          .catch(error => console.log(error))
     }
 
     const handleInputs = (e) => {

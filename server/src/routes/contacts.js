@@ -35,20 +35,20 @@ router.post('/add', ensureToken, async (req, res) => {
             user_id
         }
         await pool.query('INSERT INTO contacts set ?', [newContact])
-        return res.status(201)
+        return res.json({ message: "USER CREATED"})
     } else {
         return decode
     }
 })
 
 router.delete('/delete/:id', ensureToken, async (req, res) => {
-    const decode = verifiedToken(req, res)
+    const decode = await verifiedToken(req, res)
     if(decode.id) {
         const { id: user_id } = decode
         const { id } = req.params
-        await pool.query('DELETE FROM contacts WHERE ID = ? AND user_id = ?', [id, user_id])
-        res.status(202).json({
-            loading: false
+        await pool.query('DELETE FROM contacts WHERE id = ? AND user_id = ?', [id, user_id])
+        return res.status(202).json({
+            loading: "contacto eliminado"
         })
     } else{
         return decode

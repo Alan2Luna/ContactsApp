@@ -29,7 +29,7 @@ const PageContacts = () => {
         contacts
             ?   <div className="container__contacts">
                     {
-                        contacts.map((contact) => <Card key={contact.id} {...contact}/>)
+                        contacts.map(contact => (<Card key={contact.id} {...contact} />))
                     }
                 </div>
             :   <div className="container__contacts">
